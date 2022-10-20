@@ -1,5 +1,5 @@
 
-This is my first project related to restaurant/food.
+This is the Starbucsk sites challenge .
 
 
 ![image](https://user-images.githubusercontent.com/76790667/196875818-30d42c07-7829-49c1-ac3d-40db618ff06b.png)
