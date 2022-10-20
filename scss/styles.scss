@@ -1,0 +1,331 @@
+@import "./resets";
+@import "./variables";
+@import "./mixins";
+
+.nav-bar, .notice, .food-menu, .order, .notice-2, .links, footer {
+    max-width: 1440px;
+    margin: auto;
+} 
+
+header {
+    height: 101px;
+    box-shadow: 0 0 5px #000;
+    position: relative;
+    @include flex-center();
+    
+    .logo {
+        margin-right: 4rem;
+        display: flex;
+        justify-content: flex-end;
+        
+        img {
+            width: 51px;
+            height: 51px;
+        }
+    }
+
+    .nav-bar {
+        @include flex-center();
+        width: 100%;
+        font-weight: $bold;
+        margin-left: 0;
+        margin-right: 0;
+
+        a {
+            color: #000;
+
+            &:hover {
+                color: #008248;
+            }
+        }
+
+        .nav-1 {
+            flex-grow: 1;
+            letter-spacing: 0.1em;
+
+            ul {
+                display: flex;
+                text-transform: uppercase;
+
+                li {
+                    margin-right: 24px;
+                }
+            }
+        }
+
+        .nav-2 {
+            ul {
+                @include flex-center();
+
+                li {
+                    margin-left: 24px;
+                }
+                .btn {
+                    @include button(14px);
+
+                    &:hover {
+                        background-color: #F0F0F0;
+                    }
+                }
+                .btn-black {
+                    @extend .btn;
+                    background-color: #000;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #4C4C4C;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.notice {
+    background-color: #D8E8E3;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+
+    p {
+        width: 55%;
+        letter-spacing: 0.05em;
+        font-size: 19.5px;
+        font-weight: $semi-bold;
+        line-height: 1.75;
+        text-align: center;
+        margin: auto;
+
+        a {
+            color: #000;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.food-menu {
+    width: 100%;
+    margin: 0 auto 2rem auto;
+    @include flex-center(row-reverse);
+
+    .item-image {
+        width: 50%;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+    .item-info {
+        width: 50%;
+        padding: 32px 40px;
+        @include flex-center(column);
+
+        .title {
+            @include title();
+        }
+
+        .sub-title {
+            @include sub-title();
+        }
+
+        .button {
+            @include button(16px);
+
+            &:hover {
+                background-color: #DBE5E2;
+            }
+        }
+    }
+    .item-info-big {
+        @extend .item-info;
+        background-color: #F2F0EB;
+
+        .title-big {
+            @include title-big();
+        }
+
+        .sub-title-big {
+            @include sub-title-big();
+        }
+    }
+}
+
+#item-three {
+    flex-direction: row;
+}
+
+.order {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+
+    .food-menu {
+        display: grid;
+        align-content: start;
+
+        .item-image, .item-info {
+            width: 100%;
+        }
+        
+        .item-info {
+            background-color: #D4E9E2;
+            padding: 1rem 4rem;
+
+            a:hover {
+                background-color: #C8DBD5;
+            }
+        }
+    }
+}
+
+#item-one {
+    background-color: #F1F8F6;
+}
+
+#item-two, #item-three {
+    background-color: #F1EFEF;
+}
+
+#item-four, #item-five, #item-six {
+    background-color: #D4E9E2;
+
+    a:hover {
+        background-color: #C8DBD5;
+    }
+}
+
+.notice-2 {
+    margin: auto;
+    padding: 2.5rem;
+    font-size: $regular;
+    letter-spacing: 0.16px;
+    line-height: 25.2px;
+    font-weight: $semi-bold;
+
+    p {
+        max-width: 46em;
+        margin: auto;
+        text-align: center;
+    }
+
+    .notice-2-p {
+        margin-top: 5rem;
+    }
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 2rem;
+    box-shadow: 0 -1px 3px -1px rgb(107, 102, 102);
+    padding: 1.5rem 3rem;
+
+    .section {
+        .section-title {
+            font-size: 20px;
+            font-weight: $semi-bold;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-links {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 400;
+
+            li {
+                margin-bottom: 2rem;
+            }
+
+            a {
+                color: gray;
+
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 95%;
+    margin: auto;
+
+    hr {
+        border: 1px solid #E5E5E5;
+        margin-bottom: 2rem;
+    }
+
+    .icons {
+        display: flex;
+
+        i {
+            font-size: 32px;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: all 0.2s ease;
+
+            &:hover {
+                box-shadow: 0 0 5px 7px rgb(211, 205, 205);
+            }
+        }
+
+        .fa-instagram, .fa-youtube, .fa-twitter {
+            font-size: 19px;
+            color: #fff;
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            background-color: #000;
+            @include flex-center(row);
+        }
+    }
+
+    .f-links {
+        margin: 1.5rem 0;
+
+        ul {
+            display: flex;
+
+            li {
+                a {
+                    color: #000;
+                    letter-spacing: 0.16px;
+                    font-weight: 600;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            span {
+                margin: 0 2rem;
+                border: 0.5px solid grey;
+            }
+        }
+    }
+
+    .copyright {
+        color: gray;
+        font-size: 16px;
+        margin-bottom: 3rem;
+    }
+}
+
+.links-accordion, .mobile-menu {
+    display: none;
+}
+
+@media (max-width: 1440px) {
+    header {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+@import "./media-768";
+@import "./media-600";
